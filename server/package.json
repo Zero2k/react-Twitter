@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
+    "prettier": "prettier --single-quote --print-width 100 --trailing-comma all --write 'src/**/*.js'"
+  },
+  "dependencies": {
+    "apollo-server-express": "^1.1.6",
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.18.2",
+    "cross-env": "^5.0.5",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "graphql": "^0.11.7",
+    "graphql-date": "^1.0.3",
+    "graphql-tools": "^2.5.0",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.12.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.4"
+  }
+}
