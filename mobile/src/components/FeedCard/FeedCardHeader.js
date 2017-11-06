@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { fakeAvatar } from '../../utils/constants';
+import distanceInWordsToNow from 'date-fns/distance_in_word_to_now';
 
 const AVATAR_SIZE = 40;
 
@@ -54,23 +55,20 @@ const MetaText = styled.Text`
   color: ${props => props.theme.LIGHT_GRAY};
 `;
 
-const username = 'Zero2k';
-const fullname = 'Zero2k Git';
 const createdAt = '1 day ago';
-const avatar = fakeAvatar;
 
-const FeedCardHeader = () => (
+const FeedCardHeader = ({ username, firstName, lastName, createdAt }) => (
   <Root>
     <AvatarContainer>
-      <Avatar source={{ uri: avatar }} />
+      <Avatar source={{ uri: avatar || fakeAvatar }} />
     </AvatarContainer>
     <MetaContainer>
       <MetaTopContainer>
-        <MetaFullName>{fullname}</MetaFullName>
+        <MetaFullName>{firstName}</MetaFullName>
         <MetaText style={{ marginLeft: 5 }}>@{username}</MetaText>
       </MetaTopContainer>
       <MetaBottomContainer>
-        <MetaText>{createdAt}</MetaText>
+        <MetaText>{distanceInWordsToNow(createdAt)} ago</MetaText>
       </MetaBottomContainer>
     </MetaContainer>
   </Root>

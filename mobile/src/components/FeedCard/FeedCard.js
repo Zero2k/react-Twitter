@@ -28,15 +28,13 @@ const CardContentText = styled.Text`
   color: ${props => props.theme.SECONDARY};
 `;
 
-const text = 'This is my first tweet. Hello World!';
-
-const FeedCard = () => (
+const FeedCard = ({ text, user, createdAt, favoriteCount }) => (
   <Root>
-    <FeedCardHeader />
+    <FeedCardHeader {...user} createdAt={createdAt} />
     <CardContentContainer>
       <CardContentText>{text}</CardContentText>
     </CardContentContainer>
-    <FeedCardFooter />
+    <FeedCardFooter favoriteCount={favoriteCount} />
   </Root>
 );
 

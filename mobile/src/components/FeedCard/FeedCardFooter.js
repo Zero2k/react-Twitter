@@ -30,10 +30,9 @@ const ButtonText = styled.Text`
 
 const comments = 1;
 const retweet = 2;
-const favoriteCount = 3;
 const isFavorite = true;
 
-const FeedCardFooter = () => (
+const FeedCardFooter = ({ favoriteCount }) => (
   <Root>
     <Button>
       <SimpleLineIcons name="bubble" size={ICON_SIZE} color={colors.LIGHT_GRAY} />
