@@ -14,6 +14,13 @@ const Root = styled.View`
   backgroundColor: #ccc;
 `;
 
+const ErrorComponent = styled.View`
+  flex: 1;
+  paddingTop: 5;
+  justifyContent: center;
+  backgroundColor: red;
+`
+
 const List = styled.ScrollView``;
 
 class HomeScreen extends Component {
@@ -28,9 +35,12 @@ class HomeScreen extends Component {
         </Root>
       )
     }
+    if(data.error) {
+      return <ErrorComponent /> ;
+    }
     return (
       <Root>
-        <FlatList 
+        <FlatList
           contentContainerStyle={{ alignSelf: 'stretch' }}
           data={data.getTweets}
           keyExtractor={item => item._id}

@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 
 const networkInterface = createNetworkInterface({
+  /* uri: 'http://146.185.149.19:3000/graphiql', */
   uri: 'http://localhost:3000/graphql',
 });
 

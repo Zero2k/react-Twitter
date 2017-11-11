@@ -28,7 +28,7 @@ const CardContentText = styled.Text`
   color: ${props => props.theme.SECONDARY};
 `;
 
-const FeedCard = ({ text, user, createdAt, favoriteCount }) => (
+function FeedCard({ text, user, createdAt, favoriteCount }) {
   <Root>
     <FeedCardHeader {...user} createdAt={createdAt} />
     <CardContentContainer>
@@ -36,6 +36,6 @@ const FeedCard = ({ text, user, createdAt, favoriteCount }) => (
     </CardContentContainer>
     <FeedCardFooter favoriteCount={favoriteCount} />
   </Root>
-);
+};
 
 export default FeedCard;

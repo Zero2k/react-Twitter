@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { fakeAvatar } from '../../utils/constants';
-import distanceInWordsToNow from 'date-fns/distance_in_word_to_now';
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 
 const AVATAR_SIZE = 40;
 
@@ -57,7 +57,7 @@ const MetaText = styled.Text`
 
 const createdAt = '1 day ago';
 
-const FeedCardHeader = ({ username, firstName, lastName, createdAt }) => (
+function FeedCardHeader({ username, firstName, lastName, createdAt, avatar }) {
   <Root>
     <AvatarContainer>
       <Avatar source={{ uri: avatar || fakeAvatar }} />
@@ -72,6 +72,6 @@ const FeedCardHeader = ({ username, firstName, lastName, createdAt }) => (
       </MetaBottomContainer>
     </MetaContainer>
   </Root>
-);
+};
 
 export default FeedCardHeader;
