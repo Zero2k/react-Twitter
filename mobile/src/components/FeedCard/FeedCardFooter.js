@@ -15,11 +15,11 @@ const Root = styled.View`
 const Button = styled(Touchable).attrs({
   feedback: 'opacity',
 })`
-    flex: 1;
-    flexDirection: row;
-    alignItems: center;
-    justifyContent: space-around;
-    paddingHorizontal: 32px;
+  flex: 1;
+  flexDirection: row;
+  alignItems: center;
+  justifyContent: space-around;
+  paddingHorizontal: 32px;
 `;
 
 const ButtonText = styled.Text`
@@ -28,25 +28,39 @@ const ButtonText = styled.Text`
   color: ${props => props.theme.LIGHT_GRAY};
 `;
 
-const comments = 1;
-const retweet = 2;
-const isFavorite = true;
+const isFavorited = false;
 
 function FeedCardFooter({ favoriteCount }) {
-  <Root>
-    <Button>
-      <SimpleLineIcons name="bubble" size={ICON_SIZE} color={colors.LIGHT_GRAY} />
-      <ButtonText>{comments}</ButtonText>
-    </Button>
-    <Button>
-      <Entypo name="retweet" size={ICON_SIZE} color={colors.LIGHT_GRAY} />
-      <ButtonText>{retweet}</ButtonText>
-    </Button>
-    <Button>
-      <Entypo name="heart" size={ICON_SIZE} color={isFavorite ? 'red' : colors.LIGHT_GRAY} />
-      <ButtonText>{favoriteCount}</ButtonText>
-    </Button>
-  </Root>
-};
+  return (
+    <Root>
+      <Button>
+        <SimpleLineIcons
+          name="bubble"
+          size={ICON_SIZE}
+          color={colors.LIGHT_GRAY}
+        />
+        <ButtonText>
+          {favoriteCount}
+        </ButtonText>
+      </Button>
+      <Button>
+        <Entypo name="retweet" color={colors.LIGHT_GRAY} size={ICON_SIZE} />
+        <ButtonText>
+          {favoriteCount}
+        </ButtonText>
+      </Button>
+      <Button>
+        <Entypo
+          name="heart"
+          color={isFavorited ? 'red' : colors.LIGHT_GRAY}
+          size={ICON_SIZE}
+        />
+        <ButtonText>
+          {favoriteCount}
+        </ButtonText>
+      </Button>
+    </Root>
+  );
+}
 
 export default FeedCardFooter;

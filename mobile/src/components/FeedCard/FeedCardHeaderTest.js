@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-
 import { fakeAvatar } from '../../utils/constants';
 
 const AVATAR_SIZE = 40;
-const AVATAR_RADIUS = AVATAR_SIZE / 2;
 
 const Root = styled.View`
   height: 50;
@@ -22,7 +19,7 @@ const AvatarContainer = styled.View`
 const Avatar = styled.Image`
   height: ${AVATAR_SIZE};
   width: ${AVATAR_SIZE};
-  borderRadius: ${AVATAR_RADIUS};
+  borderRadius: 20;
 `;
 
 const MetaContainer = styled.View`
@@ -39,7 +36,7 @@ const MetaTopContainer = styled.View`
 `;
 
 const MetaBottomContainer = styled.View`
-  flex: 0.8;
+  flex: 0.9;
   alignSelf: stretch;
   alignItems: flex-start;
   justifyContent: center;
@@ -47,7 +44,7 @@ const MetaBottomContainer = styled.View`
 
 const MetaFullName = styled.Text`
   fontSize: 16;
-  fontWeight: bold;
+  fontWeight: 600;
   color: ${props => props.theme.SECONDARY};
 `;
 
@@ -57,29 +54,26 @@ const MetaText = styled.Text`
   color: ${props => props.theme.LIGHT_GRAY};
 `;
 
-function FeedCardHeader({ username, firstName, lastName, avatar, createdAt }) {
-  return (
-    <Root>
-      <AvatarContainer>
-        <Avatar source={{ uri: avatar || fakeAvatar }} />
-      </AvatarContainer>
-      <MetaContainer>
-        <MetaTopContainer>
-          <MetaFullName>
-            {firstName} {lastName}
-          </MetaFullName>
-          <MetaText style={{ marginLeft: 5 }}>
-            @{username}
-          </MetaText>
-        </MetaTopContainer>
-        <MetaBottomContainer>
-          <MetaText>
-            {distanceInWordsToNow(createdAt)} ago
-          </MetaText>
-        </MetaBottomContainer>
-      </MetaContainer>
-    </Root>
-  )
-}
+const username = 'Zero2k';
+const fullname = 'Zero2k Git';
+const createdAt = '1 day ago';
+const avatar = fakeAvatar;
+
+const FeedCardHeader = () => (
+  <Root>
+    <AvatarContainer>
+      <Avatar source={{ uri: avatar }} />
+    </AvatarContainer>
+    <MetaContainer>
+      <MetaTopContainer>
+        <MetaFullName>{fullname}</MetaFullName>
+        <MetaText style={{ marginLeft: 5 }}>@{username}</MetaText>
+      </MetaTopContainer>
+      <MetaBottomContainer>
+        <MetaText>{createdAt}</MetaText>
+      </MetaBottomContainer>
+    </MetaContainer>
+  </Root>
+);
 
 export default FeedCardHeader;

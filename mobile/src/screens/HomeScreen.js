@@ -4,22 +4,14 @@ import { graphql } from 'react-apollo';
 import { ActivityIndicator, FlatList } from 'react-native';
 
 import FeedCard from '../components/FeedCard/FeedCard';
+import FeedCardTest from '../components/FeedCard/FeedCardTest';
 
-import GET_TWEETS_QUERY from '../graphql/queries/getTweets';
+import TWEETS_QUERY from '../graphql/queries/getTweets';
 
 const Root = styled.View`
   flex: 1;
   paddingTop: 5;
-  justifyContent: center;
-  backgroundColor: #ccc;
 `;
-
-const ErrorComponent = styled.View`
-  flex: 1;
-  paddingTop: 5;
-  justifyContent: center;
-  backgroundColor: red;
-`
 
 const List = styled.ScrollView``;
 
@@ -35,11 +27,15 @@ class HomeScreen extends Component {
         </Root>
       )
     }
-    if(data.error) {
-      return <ErrorComponent /> ;
-    }
     return (
       <Root>
+        {/* <List>
+          <FeedCardTest />
+          <FeedCardTest />
+          <FeedCardTest />
+          <FeedCardTest />
+          <FeedCardTest />
+        </List> */}
         <FlatList
           contentContainerStyle={{ alignSelf: 'stretch' }}
           data={data.getTweets}
@@ -51,4 +47,4 @@ class HomeScreen extends Component {
   }
 }
 
-export default graphql(GET_TWEETS_QUERY)(HomeScreen);
+export default graphql(TWEETS_QUERY)(HomeScreen);

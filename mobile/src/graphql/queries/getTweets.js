@@ -1,7 +1,7 @@
-import { gql } from 'react-apollo';
+import gql from 'graphql-tag';
 
-export default gql`
-  {
+const TWEETS_QUERY = gql`
+  query {
     getTweets {
       text
       _id
@@ -16,3 +16,5 @@ export default gql`
     }
   }
 `;
+
+export default TWEETS_QUERY;

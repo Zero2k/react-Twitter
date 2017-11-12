@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components/native';
 
-import FeedCardHeader from './FeedCardHeader';
-import FeedCardFooter from './FeedCardFooter';
+import FeedCardHeadeTest from './FeedCardHeaderTest';
+import FeedCardFooterTest from './FeedCardFooterTest';
 
 const Root = styled.View`
   minHeight: 180;
@@ -28,18 +28,16 @@ const CardContentText = styled.Text`
   color: ${props => props.theme.SECONDARY};
 `;
 
-function FeedCard({ text, user, createdAt, favoriteCount }) {
-  return (
-    <Root>
-      <FeedCardHeader {...user} createdAt={createdAt} />
-      <CardContentContainer>
-        <CardContentText>
-          {text}
-        </CardContentText>
-      </CardContentContainer>
-      <FeedCardBottom favoriteCount={favoriteCount} />
-    </Root>
-  )
-}
+const text = 'This is my first tweet. Hello World!';
 
-export default FeedCard;
+const FeedCardTest = () => (
+  <Root>
+    <FeedCardHeadeTest />
+    <CardContentContainer>
+      <CardContentText>{text}</CardContentText>
+    </CardContentContainer>
+    <FeedCardFooterTest />
+  </Root>
+);
+
+export default FeedCardTest;
